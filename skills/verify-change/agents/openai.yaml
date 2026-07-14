@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify Change"
+  short_description: "Verify changes with reproducible evidence"
+  default_prompt: "Use $verify-change to execute the approved verification plan and report reproducible evidence."

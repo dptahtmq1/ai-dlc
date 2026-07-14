@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Architecture"
+  short_description: "Draft traceable architecture proposals"
+  default_prompt: "Use $design-architecture to draft an architecture proposal from the approved requirements baseline."

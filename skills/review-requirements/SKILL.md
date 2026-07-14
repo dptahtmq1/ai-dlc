@@ -1,0 +1,86 @@
+---
+name: review-requirements
+description: Independently review a named software requirements draft for completeness, consistency, ambiguity, testability, traceability, measurable quality attributes, scope discipline, security and privacy concerns, and unsupported solution decisions. Use only after a human explicitly authorizes review of that exact draft version in an AI-DLC workflow; produce evidence-based findings and a recommendation for human disposition without editing or approving the draft.
+---
+
+# Review Requirements
+
+Act as an independent reviewer. Inspect and report; do not edit the requirements draft, establish a baseline, change workflow state, or claim human approval.
+
+## Required references
+
+Read [references/review-policy.md](references/review-policy.md) completely before reviewing. Use [assets/review-template.md](assets/review-template.md) for the report.
+
+## Preconditions
+
+Proceed only when the review packet contains:
+
+- the exact accepted draft path and version;
+- the approved project brief and scope;
+- an approval record authorizing review of that version;
+- the applicable requirements contract and project policies;
+- a reviewer identity or invocation distinct from the draft author.
+
+If independence cannot be established, the approval targets another version, or an input is missing, return `BLOCKED` without producing a substantive review. On any precondition failure, do not create or modify any file or directory, including a blocked review report; return the blocking summary only in the agent response.
+
+## Independence
+
+- Review only artifact evidence and approved context.
+- Do not use the author's private reasoning, intended conclusions, or suggested severity.
+- Do not ask the author to defend the draft during the review.
+- Do not repair the draft. Describe defects and recommended outcomes precisely enough for a later approved rework.
+- If prior reviews exist, use them only to check recurrence and resolution after performing an independent pass on the current artifact.
+
+## Review workflow
+
+1. Confirm artifact identity, version, status `PROPOSED`, and matching human review authorization.
+2. Map goals, scope, constraints, requirements, quality scenarios, acceptance criteria, assumptions, and open questions.
+3. Apply every review dimension in the policy.
+4. Verify all Must requirements bidirectionally through the traceability matrix.
+5. Inspect High-priority behavior for positive, negative, authorization, failure, boundary, and recovery cases where relevant.
+6. Inspect each NFR and quality scenario for an observable measurement.
+7. Identify contradictions, duplicates, hidden design decisions, unsupported assumptions, and missing actors or states.
+8. Assign severity and confidence using evidence, not prose intensity.
+9. Deduplicate findings by root cause while listing all affected IDs.
+10. Produce exactly one immutable review report and a recommendation for human disposition.
+
+## Finding rules
+
+Every finding must include:
+
+- stable finding ID `FIND-NNN` within the review;
+- severity and confidence;
+- affected requirement or section IDs;
+- exact artifact evidence;
+- violated review rule;
+- practical impact;
+- recommended correction or human decision;
+- blocking status.
+
+Avoid style-only findings unless wording creates ambiguity or test risk. Do not report speculative defects without identifying the missing evidence or scenario.
+
+## Recommendation
+
+Return exactly one:
+
+- `PASS_FOR_HUMAN_APPROVAL`: no Critical or High finding remains; every Must requirement has valid goal and acceptance traces; unresolved items are clearly visible and do not prevent a responsible baseline decision.
+- `REWORK_REQUIRED`: one or more correctable blocking findings exist.
+- `ESCALATE_TO_HUMAN`: product intent, risk acceptance, conflicting authoritative sources, independence, or policy cannot be resolved by requirements editing alone.
+- `BLOCKED`: required inputs or authorization are missing.
+
+This recommendation is never approval. The orchestrator must stop for human disposition after receiving it.
+
+## Output
+
+Only after all preconditions pass, write `.ai-dlc/requirements/reviews/review-vNNN.md` without changing the draft. Return:
+
+- reviewed artifact path and version;
+- review report path and version;
+- recommendation;
+- finding counts by severity;
+- blocking finding IDs;
+- traceability coverage summary;
+- open decisions requiring a human;
+- explicit statement: `Human disposition is required; no workflow transition was approved by this review.`
+
+Stop after returning the report.

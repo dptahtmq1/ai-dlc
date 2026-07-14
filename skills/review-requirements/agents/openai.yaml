@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Requirements"
+  short_description: "Independently review a requirements proposal"
+  default_prompt: "Use $review-requirements to independently review the current requirements draft for human approval."

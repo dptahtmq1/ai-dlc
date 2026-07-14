@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI-DLC Orchestrator"
+  short_description: "Coordinate human-approved AI-DLC workflow gates"
+  default_prompt: "Use $ai-dlc-orchestrator to start or continue the human-approved AI-DLC workflow for this project."

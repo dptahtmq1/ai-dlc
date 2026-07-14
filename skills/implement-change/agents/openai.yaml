@@ -1,0 +1,4 @@
+interface:
+  display_name: "Implement Change"
+  short_description: "Implement one approved change packet"
+  default_prompt: "Use $implement-change to implement one human-approved work packet from the implementation plan."

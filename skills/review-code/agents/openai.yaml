@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Code"
+  short_description: "Independently review implemented changes"
+  default_prompt: "Use $review-code to independently review the current implementation against its approved baselines and work packet."
