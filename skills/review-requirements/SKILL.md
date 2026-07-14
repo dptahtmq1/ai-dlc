@@ -1,6 +1,6 @@
 ---
 name: review-requirements
-description: Independently review a named software requirements draft for completeness, consistency, ambiguity, testability, traceability, measurable quality attributes, scope discipline, security and privacy concerns, and unsupported solution decisions. Use only after a human explicitly authorizes review of that exact draft version in an AI-DLC workflow; produce evidence-based findings and a recommendation for human disposition without editing or approving the draft.
+description: Independently review a named requirements draft inside a human-authorized AI author-review loop for completeness, consistency, ambiguity, testability, traceability, measurable quality attributes, scope discipline, security and privacy concerns, and unsupported solution decisions. Use when an orchestrator supplies the exact draft, active loop authorization, and a reviewer invocation distinct from the author; route correctable findings back to AI rework or pass the draft to human approval.
 ---
 
 # Review Requirements
@@ -15,13 +15,13 @@ Read [references/review-policy.md](references/review-policy.md) completely befor
 
 Proceed only when the review packet contains:
 
-- the exact accepted draft path and version;
+- the exact draft path and version produced in the active loop;
 - the approved project brief and scope;
-- an approval record authorizing review of that version;
+- the active requirements-loop authorization and iteration record;
 - the applicable requirements contract and project policies;
 - a reviewer identity or invocation distinct from the draft author.
 
-If independence cannot be established, the approval targets another version, or an input is missing, return `BLOCKED` without producing a substantive review. On any precondition failure, do not create or modify any file or directory, including a blocked review report; return the blocking summary only in the agent response.
+If independence cannot be established, versions disagree, or an input is missing, return `BLOCKED` without producing a substantive review or changing files.
 
 ## Independence
 
@@ -33,7 +33,7 @@ If independence cannot be established, the approval targets another version, or 
 
 ## Review workflow
 
-1. Confirm artifact identity, version, status `PROPOSED`, and matching human review authorization.
+1. Confirm artifact identity, version, status `PROPOSED`, active loop authorization, and author-review independence.
 2. Map goals, scope, constraints, requirements, quality scenarios, acceptance criteria, assumptions, and open questions.
 3. Apply every review dimension in the policy.
 4. Verify all Must requirements bidirectionally through the traceability matrix.
@@ -42,7 +42,7 @@ If independence cannot be established, the approval targets another version, or 
 7. Identify contradictions, duplicates, hidden design decisions, unsupported assumptions, and missing actors or states.
 8. Assign severity and confidence using evidence, not prose intensity.
 9. Deduplicate findings by root cause while listing all affected IDs.
-10. Produce exactly one immutable review report and a recommendation for human disposition.
+10. Produce one immutable review report and a routing recommendation to the orchestrator.
 
 ## Finding rules
 
@@ -68,7 +68,7 @@ Return exactly one:
 - `ESCALATE_TO_HUMAN`: product intent, risk acceptance, conflicting authoritative sources, independence, or policy cannot be resolved by requirements editing alone.
 - `BLOCKED`: required inputs or authorization are missing.
 
-This recommendation is never approval. The orchestrator must stop for human disposition after receiving it.
+This recommendation is never approval. `REWORK_REQUIRED` routes findings to the author while loop capacity remains. `PASS_FOR_HUMAN_APPROVAL` ends the AI loop and moves to human disposition. `ESCALATE_TO_HUMAN` and `BLOCKED` stop the loop.
 
 ## Output
 
@@ -81,6 +81,6 @@ Only after all preconditions pass, write `.ai-dlc/requirements/reviews/review-vN
 - blocking finding IDs;
 - traceability coverage summary;
 - open decisions requiring a human;
-- explicit statement: `Human disposition is required; no workflow transition was approved by this review.`
+- explicit statement: `This AI review is a recommendation only; the orchestrator controls loop routing and human approval.`
 
 Stop after returning the report.

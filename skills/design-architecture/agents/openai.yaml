@@ -1,4 +1,4 @@
 interface:
   display_name: "Design Architecture"
-  short_description: "Draft traceable architecture proposals"
-  default_prompt: "Use $design-architecture to draft an architecture proposal from the approved requirements baseline."
+  short_description: "Draft architecture for independent AI review"
+  default_prompt: "Use $design-architecture to create the next architecture version inside an authorized AI review loop."

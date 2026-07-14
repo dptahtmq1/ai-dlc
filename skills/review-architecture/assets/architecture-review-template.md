@@ -10,7 +10,8 @@
 | Reviewed proposal | `<path and version>` |
 | Requirements baseline | `<path and version>` |
 | Reviewer role | `architecture-reviewer` |
-| Review authorization | `<approval-id>` |
+| Loop authorization | `<approval-id>` |
+| Loop iteration | `<number>/<maximum>` |
 | Status | `RECOMMENDATION_ONLY` |
 | Created at | `<timestamp>` |
 
@@ -18,7 +19,7 @@
 
 `PASS_FOR_HUMAN_APPROVAL | REWORK_REQUIRED | ESCALATE_TO_HUMAN | BLOCKED`
 
-Human disposition is required; no workflow transition was approved by this review.
+This AI review is a recommendation only; the orchestrator controls loop routing and human approval.
 
 ## 3. Executive summary
 
@@ -61,4 +62,4 @@ Human disposition is required; no workflow transition was approved by this revie
 
 ## 10. Recommended next action
 
-The orchestrator must present this report to the human and wait for explicit disposition.
+The orchestrator must route correctable findings to AI rework while capacity remains, or present a passing/escalated result to the human.

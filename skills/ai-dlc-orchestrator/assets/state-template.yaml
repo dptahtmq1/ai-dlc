@@ -1,8 +1,8 @@
-schema_version: "1.0"
+schema_version: "2.0"
 project_id: "REPLACE_WITH_PROJECT_ID"
 revision: 1
 current_stage: "REQUIREMENTS"
-current_status: "AWAITING_DRAFT_AUTHORIZATION"
+current_status: "AWAITING_REQUIREMENTS_LOOP_AUTHORIZATION"
 previous_status: "NOT_INITIALIZED"
 current_artifacts:
   project_brief: ".ai-dlc/project.yaml"
@@ -13,28 +13,53 @@ current_artifacts:
   architecture_review: null
   architecture_baseline: null
   implementation_plan: null
+  implementation_plan_review: null
   active_work_packet: null
   work_packet_execution: null
   code_review: null
   verification_report: null
-iteration:
-  requirements_revision: 0
-  maximum_requirements_revisions: 3
-  architecture_revision: 0
-  maximum_architecture_revisions: 3
-  work_packet_revision: 0
-  maximum_work_packet_revisions: 3
+ai_loops:
+  requirements:
+    authorization_id: null
+    status: "NOT_STARTED"
+    starting_version: "v001"
+    current_iteration: 0
+    maximum_iterations: 3
+    author_role: "requirements-author"
+    reviewer_role: "requirements-reviewer"
+    outcome: null
+  architecture:
+    authorization_id: null
+    status: "NOT_STARTED"
+    starting_version: "v001"
+    current_iteration: 0
+    maximum_iterations: 3
+    author_role: "architecture-author"
+    reviewer_role: "architecture-reviewer"
+    outcome: null
+  implementation_plan:
+    authorization_id: null
+    status: "NOT_STARTED"
+    starting_version: "v001"
+    current_iteration: 0
+    maximum_iterations: 3
+    author_role: "implementation-planner"
+    reviewer_role: "implementation-plan-reviewer"
+    outcome: null
+work_packet_iteration:
+  current: 0
+  maximum: 3
 work_packets:
   accepted: []
   remaining: []
 blocking_findings: []
 next_required_human_action:
-  checkpoint: "DRAFT"
-  expected_decision: "APPROVE DRAFT v001"
+  checkpoint: "REQUIREMENTS_AI_LOOP"
+  expected_decision: "APPROVE REQUIREMENTS AI LOOP v001"
 approvals: []
 history:
   - from: "NOT_INITIALIZED"
-    to: "AWAITING_DRAFT_AUTHORIZATION"
+    to: "AWAITING_REQUIREMENTS_LOOP_AUTHORIZATION"
     reason: "Human approved project intake and state initialization"
     approval_id: "REPLACE_WITH_APPROVAL_ID"
     at: "REPLACE_WITH_TIMESTAMP"
