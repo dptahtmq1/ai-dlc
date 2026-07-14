@@ -1,0 +1,21 @@
+{
+  "name": "ai-dlc",
+  "version": "0.1.0+codex.20260714054924",
+  "description": "Human-approved, multi-agent AI software development lifecycle workflows.",
+  "author": {
+    "name": "Local developer"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AI-DLC",
+    "shortDescription": "Approval-gated software requirements workflows.",
+    "longDescription": "AI-DLC coordinates specialized agents to draft and independently review traceable software requirements, with mandatory human approval at every workflow gate.",
+    "developerName": "Local developer",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "defaultPrompt": "Start an approval-gated AI-DLC requirements workflow for this project."
+  }
+}

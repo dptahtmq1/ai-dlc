@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Requirements"
+  short_description: "Draft traceable requirements for human review"
+  default_prompt: "Use $draft-requirements to turn this software idea into traceable requirements for human review."

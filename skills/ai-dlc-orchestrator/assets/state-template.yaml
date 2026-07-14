@@ -1,0 +1,40 @@
+schema_version: "1.0"
+project_id: "REPLACE_WITH_PROJECT_ID"
+revision: 1
+current_stage: "REQUIREMENTS"
+current_status: "AWAITING_DRAFT_AUTHORIZATION"
+previous_status: "NOT_INITIALIZED"
+current_artifacts:
+  project_brief: ".ai-dlc/project.yaml"
+  requirements_draft: null
+  requirements_review: null
+  requirements_baseline: null
+  architecture_draft: null
+  architecture_review: null
+  architecture_baseline: null
+  implementation_plan: null
+  active_work_packet: null
+  work_packet_execution: null
+  code_review: null
+  verification_report: null
+iteration:
+  requirements_revision: 0
+  maximum_requirements_revisions: 3
+  architecture_revision: 0
+  maximum_architecture_revisions: 3
+  work_packet_revision: 0
+  maximum_work_packet_revisions: 3
+work_packets:
+  accepted: []
+  remaining: []
+blocking_findings: []
+next_required_human_action:
+  checkpoint: "DRAFT"
+  expected_decision: "APPROVE DRAFT v001"
+approvals: []
+history:
+  - from: "NOT_INITIALIZED"
+    to: "AWAITING_DRAFT_AUTHORIZATION"
+    reason: "Human approved project intake and state initialization"
+    approval_id: "REPLACE_WITH_APPROVAL_ID"
+    at: "REPLACE_WITH_TIMESTAMP"
