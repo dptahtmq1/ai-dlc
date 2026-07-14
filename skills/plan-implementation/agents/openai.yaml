@@ -1,4 +1,4 @@
 interface:
   display_name: "Plan Implementation"
-  short_description: "Create traceable implementation plans"
-  default_prompt: "Use $plan-implementation to turn the approved architecture baseline into an implementation plan."
+  short_description: "Plan implementation for independent AI review"
+  default_prompt: "Use $plan-implementation to create the next implementation plan version inside an authorized AI review loop."

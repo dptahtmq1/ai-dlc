@@ -1,6 +1,6 @@
 ---
 name: review-architecture
-description: Independently review a named software architecture proposal for requirements traceability, quality-attribute fitness, component boundaries, interfaces, data ownership, security and privacy, operability, failure recovery, feasibility, evolution risk, and unsupported technology choices. Use only after a human explicitly authorizes review of that exact architecture version in an AI-DLC workflow; produce findings and a recommendation without editing or approving the proposal.
+description: Independently review a named architecture proposal inside a human-authorized AI author-review loop for requirements traceability, quality attributes, boundaries, interfaces, data ownership, security, operability, recovery, feasibility, evolution risk, and unsupported choices. Use when an orchestrator supplies the exact proposal, active loop authorization, and reviewer independence; route correctable findings to AI rework or pass the proposal to human approval.
 ---
 
 # Review Architecture
@@ -13,13 +13,13 @@ Read [references/architecture-review-policy.md](references/architecture-review-p
 
 ## Preconditions
 
-Proceed only when the review packet contains the exact accepted proposal and version, the human-approved requirements baseline and project constraints, an approval record authorizing review of that version, the architecture contract and repository policy, and a reviewer invocation distinct from the architecture author.
+Proceed only when the packet contains the exact proposal and version from the active loop, approved requirements baseline and constraints, loop authorization and iteration record, architecture contract and policy, and a reviewer invocation distinct from the author.
 
 If independence cannot be established or an input or version is missing, return `BLOCKED` without creating or modifying a review file.
 
 ## Workflow
 
-1. Confirm artifact identity, version, status `PROPOSED`, approved inputs, and review authorization.
+1. Confirm artifact identity, version, status `PROPOSED`, approved inputs, active loop authorization, and independence.
 2. Map drivers, decisions, components, interfaces, data, quality tactics, risks, assumptions, and open questions.
 3. Apply every review dimension in the policy.
 4. Verify bidirectional coverage between Must requirements, quality scenarios, and architecture decisions.
@@ -31,10 +31,10 @@ If independence cannot be established or an input or version is missing, return 
 
 Every finding includes `ARCH-FIND-NNN`, severity, confidence, blocking status, affected IDs, exact evidence, violated rule, impact, and recommended correction or human decision.
 
-Return exactly one: `PASS_FOR_HUMAN_APPROVAL`, `REWORK_REQUIRED`, `ESCALATE_TO_HUMAN`, or `BLOCKED`. The recommendation is never approval.
+Return exactly one: `PASS_FOR_HUMAN_APPROVAL`, `REWORK_REQUIRED`, `ESCALATE_TO_HUMAN`, or `BLOCKED`. `REWORK_REQUIRED` routes findings to the author while capacity remains; pass ends the AI loop. The recommendation is never approval.
 
 ## Output
 
-Only after all preconditions pass, write `.ai-dlc/architecture/reviews/architecture-review-vNNN.md`. Return proposal and report paths, recommendation, finding counts and blocking IDs, trace coverage, open decisions, and `Human disposition is required; no workflow transition was approved by this review.`
+Only after all preconditions pass, write `.ai-dlc/architecture/reviews/architecture-review-vNNN.md`. Return proposal and report paths, recommendation, finding counts and blocking IDs, coverage, open decisions, and `This AI review is a recommendation only; the orchestrator controls loop routing and human approval.`
 
 Stop after returning the report.

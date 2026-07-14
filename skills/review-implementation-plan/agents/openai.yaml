@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review Implementation Plan"
+  short_description: "Independently review implementation plans"
+  default_prompt: "Use $review-implementation-plan to independently review the current implementation plan before human approval."

@@ -1,11 +1,11 @@
 ---
 name: draft-requirements
-description: Draft or revise traceable functional and non-functional software requirements from a human-approved project brief. Use when an AI-DLC orchestrator has an explicit human authorization for a named draft or rework version and needs goals, scope, actors, requirements, quality-attribute scenarios, acceptance criteria, assumptions, open questions, and trace links written without making architecture decisions.
+description: Draft or revise traceable functional and non-functional software requirements inside a human-authorized AI author-review loop. Use when an AI-DLC orchestrator supplies an approved project brief, loop authorization, target version, and independent AI review findings for revision; produce a versioned proposal for AI review without making architecture decisions or claiming approval.
 ---
 
 # Draft Requirements
 
-Produce a proposal for human review. Never approve requirements, advance workflow state, invoke another phase, or describe the output as final.
+Produce a proposal for independent AI review. Never approve requirements, advance workflow state, invoke the reviewer, or describe the output as final.
 
 ## Required references
 
@@ -18,10 +18,10 @@ Proceed only when the input packet contains:
 - an approved project brief;
 - explicit scope and known constraints;
 - the target version `vNNN`;
-- an orchestrator record that a human approved this draft or rework invocation;
-- accepted findings and human comments when revising.
+- an active requirements-loop authorization established by a human phase-start approval;
+- the prior AI review report and routed findings when revising.
 
-If any precondition is missing or the approval targets a different version, return `BLOCKED` to the orchestrator without writing a draft.
+If any precondition is missing, the target exceeds the authorized loop limit, or versions disagree, return `BLOCKED` without writing a draft.
 
 ## Workflow
 
@@ -61,11 +61,11 @@ Quality-attribute scenarios must include source, stimulus, environment, affected
 
 ## Revision rules
 
-- Modify only the human-approved revision scope plus changes necessary to keep the document consistent.
-- Include a change summary mapping each accepted finding or human comment to its resolution.
+- Modify only the AI-review findings routed by the orchestrator, human comments, and consistency repairs.
+- Include a change summary mapping each routed finding or human comment to its resolution.
 - Mark unresolved findings explicitly.
 - Never overwrite the prior draft or review.
-- A revised draft requires a new human acceptance and a new independent review.
+- Every revised draft requires a new independent AI review; it does not require another human approval while the loop authorization remains active.
 
 ## Self-check
 
@@ -90,6 +90,6 @@ Write `.ai-dlc/requirements/drafts/requirements-vNNN.md`. Return:
 - open questions and assumptions;
 - changed, added, retired, and unchanged IDs for revisions;
 - self-check result;
-- recommendation `READY_FOR_HUMAN_DRAFT_ACCEPTANCE` or `BLOCKED`.
+- recommendation `READY_FOR_AI_REVIEW` or `BLOCKED`.
 
 Stop after returning the proposal. Do not start review.

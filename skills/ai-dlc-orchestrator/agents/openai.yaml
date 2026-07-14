@@ -1,4 +1,4 @@
 interface:
   display_name: "AI-DLC Orchestrator"
-  short_description: "Coordinate human-approved AI-DLC workflow gates"
-  default_prompt: "Use $ai-dlc-orchestrator to start or continue the human-approved AI-DLC workflow for this project."
+  short_description: "Run bounded AI review loops before human gates"
+  default_prompt: "Use $ai-dlc-orchestrator to run bounded independent AI author-review loops and present passing artifacts for human approval."

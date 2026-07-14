@@ -1,4 +1,4 @@
 interface:
   display_name: "Review Architecture"
-  short_description: "Independently review architecture proposals"
-  default_prompt: "Use $review-architecture to independently review the current architecture proposal."
+  short_description: "Review architecture and route AI rework"
+  default_prompt: "Use $review-architecture to independently review the current architecture proposal inside its AI loop."

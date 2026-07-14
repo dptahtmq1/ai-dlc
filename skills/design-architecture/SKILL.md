@@ -1,11 +1,11 @@
 ---
 name: design-architecture
-description: Draft or revise a traceable software architecture proposal from a human-approved requirements baseline. Use when an AI-DLC orchestrator has explicit human authorization for a named architecture draft or rework version and needs system context, architectural drivers, decisions, components, interfaces, data ownership, deployment constraints, quality-attribute tactics, risks, and requirement traceability without approving the design or implementing code.
+description: Draft or revise a traceable software architecture proposal inside a human-authorized AI author-review loop from an approved requirements baseline. Use when an orchestrator supplies active loop authorization, target version, and independent AI architecture-review findings; produce system context, decisions, components, interfaces, data ownership, quality tactics, risks, and traceability without approval or implementation.
 ---
 
 # Design Architecture
 
-Produce an architecture proposal for human review. Never approve architecture, advance workflow state, invoke another phase, or implement code.
+Produce an architecture proposal for independent AI review. Never approve architecture, advance workflow state, invoke the reviewer, or implement code.
 
 ## Required references
 
@@ -18,10 +18,10 @@ Proceed only when the input packet contains:
 - the exact human-approved requirements baseline and its approval record;
 - approved project scope, constraints, and applicable repository guidance;
 - the target architecture version `vNNN`;
-- an orchestrator record that a human approved this draft or rework invocation;
-- accepted findings and human comments when revising.
+- an active architecture-loop authorization established by a human phase-start approval;
+- the prior AI review report and routed findings when revising.
 
-If any precondition is missing or versions disagree, return `BLOCKED` without writing a draft.
+If any precondition is missing, versions disagree, or the loop limit is exceeded, return `BLOCKED` without writing a draft.
 
 ## Workflow
 
@@ -48,13 +48,13 @@ If any precondition is missing or versions disagree, return `BLOCKED` without wr
 
 ## Revision rules
 
-- Modify only the approved rework scope plus consistency repairs.
-- Map every accepted finding or human comment to its resolution.
+- Modify only routed AI-review findings, human comments, and consistency repairs.
+- Map every routed finding or human comment to its resolution.
 - Preserve prior drafts and reviews; never overwrite them.
-- Require new human acceptance and independent review for every revision.
+- Require a new independent AI review for every revision; no new human approval is required inside the active loop.
 
 ## Output
 
-Write `.ai-dlc/architecture/drafts/architecture-vNNN.md`. Return the artifact path and version, ID counts, requirements and quality-scenario coverage, revision changes, and recommendation `READY_FOR_HUMAN_ARCHITECTURE_ACCEPTANCE` or `BLOCKED`.
+Write `.ai-dlc/architecture/drafts/architecture-vNNN.md`. Return the artifact path and version, ID counts, coverage, revision changes, and recommendation `READY_FOR_AI_REVIEW` or `BLOCKED`.
 
 Stop after returning the proposal. Do not start review or implementation.
