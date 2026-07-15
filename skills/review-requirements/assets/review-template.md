@@ -27,9 +27,10 @@ This AI review is a recommendation only; the orchestrator controls loop routing 
 | Measure | Result |
 |---|---:|
 | Must requirements reviewed | `<count>` |
-| Must goal-trace coverage | `<percent>` |
-| Must acceptance-trace coverage | `<percent>` |
+| Must FR inline-verification coverage | `<percent>` |
 | NFR measurable-or-blocked coverage | `<percent>` |
+| Constraint source coverage | `<percent>` |
+| FR / NFR / constraint counts | `<counts and exception status>` |
 | Review dimensions completed | `<count>/9` |
 
 ## 5. Findings
@@ -55,21 +56,16 @@ This AI review is a recommendation only; the orchestrator controls loop routing 
 | Medium | 0 | 0 |
 | Low | 0 | 0 |
 
-## 7. Traceability defects
-
-| Source | Missing or invalid target | Finding |
-|---|---|---|
-
-## 8. Open human decisions
+## 7. Open human decisions
 
 | Decision | Why required | Affected IDs | Recommended options |
 |---|---|---|---|
 
-## 9. Recurrence and prior finding resolution
+## 8. Recurrence and prior finding resolution
 
 | Prior finding | Current status | Evidence |
 |---|---|---|
 
-## 10. Recommended next action
+## 9. Recommended next action
 
 The orchestrator must route correctable findings to AI rework while capacity remains, or present a passing/escalated result to the human.

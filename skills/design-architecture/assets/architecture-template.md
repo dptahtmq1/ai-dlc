@@ -14,14 +14,14 @@
 | Supersedes | `<version or none>` |
 | Created at | `<timestamp>` |
 
-## 2. Scope and architecture drivers
+## 2. Context, scope, and key drivers
 
-| ID | Driver | Source requirement/scenario | Priority |
+| ID | Driver | Source FR/NFR/constraint | Priority |
 |---|---|---|---|
 
-## 3. System context and trust boundaries
+### System context and trust boundaries
 
-## 4. Decisions and alternatives
+## 3. Key decisions and alternatives
 
 ### DEC-NNN: `<title>`
 
@@ -32,14 +32,16 @@
 - Rationale:
 - Consequences:
 - Validation:
-- Trace links:
+- Relevant FR/NFR/constraints:
 
-## 5. Components and responsibilities
+## 4. Components, interfaces, and data ownership
 
-| ID | Responsibility | Owner | Dependencies | Trace links |
+### Components and responsibilities
+
+| ID | Responsibility | Owner | Dependencies | Relevant requirements |
 |---|---|---|---|---|
 
-## 6. Interfaces and critical flows
+### Interfaces and critical flows
 
 ### INT-NNN: `<interface>`
 
@@ -50,31 +52,30 @@
 - Compatibility:
 - Observability:
 
-## 7. Data ownership and lifecycle
+### Data ownership and lifecycle
 
 | ID | Data | Owner | Classification | Lifecycle/consistency/recovery |
 |---|---|---|---|---|
 
-## 8. Deployment and operational model
+## 5. Quality, security, and operational approach
 
-## 9. Quality-attribute tactics and validation
+### Deployment and operations
 
-| Requirement/scenario | Tactic | Affected IDs | Verification |
+### Quality tactics and validation
+
+| NFR | Tactic | Affected IDs | Verification |
 |---|---|---|---|
 
-## 10. Security, privacy, and compliance
+### Security, privacy, and compliance
 
-## 11. Risks, assumptions, and open decisions
+## 6. Risks and open decisions
 
 | ID | Type | Statement | Impact | Owner/mitigation |
 |---|---|---|---|---|
 
-## 12. Traceability matrix
-
-| Requirement/scenario | Driver/decision | Component/interface | Validation |
-|---|---|---|---|
-
-## 13. Revision summary
+## 7. Revision summary
 
 | Source finding/comment | Resolution | Affected IDs | Status |
 |---|---|---|---|
+
+Omit this section for the first version.

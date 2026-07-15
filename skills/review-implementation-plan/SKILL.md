@@ -19,7 +19,7 @@ Require the exact plan and version produced in the active loop, approved require
 
 1. Confirm plan identity, status `PROPOSED`, baselines, loop authorization, and independence.
 2. Map every required baseline item to work packets and verification evidence.
-3. Inspect packet atomicity, ordering, dependencies, allowed and prohibited scope, acceptance criteria, tests, migrations, compatibility, rollout, rollback, and operational risk.
+3. Inspect packet atomicity, ordering, dependencies, allowed and prohibited scope, completion criteria, tests, migrations, compatibility, rollout, rollback, and operational risk.
 4. Identify omissions, contradictions, unsafe sequencing, unverifiable completion, unsupported choices, and packets too broad for independent authorization.
 5. Require the orchestrator-supplied `project_id` and `project_root`, reject cross-project inputs or a target outside that root, and write one immutable report to `<project_root>/implementation/plan-reviews/implementation-plan-review-vNNN.md`.
 

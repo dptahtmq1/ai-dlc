@@ -1,10 +1,10 @@
 # Implementation Plan
 
-## Metadata and approved baselines
+## 1. Metadata, approved baselines, and scope
 
-## Scope and repository observations
+### Repository observations
 
-## Ordered work packets
+## 2. Ordered work packets
 
 ### WP-NNN: `<title>`
 
@@ -19,19 +19,12 @@
 - Rollback boundary:
 - Status: `PROPOSED`
 
-## Dependency graph
+## 3. Shared delivery considerations
 
-## Migration and compatibility
+Include only migration, compatibility, rollout, rollback, or verification concerns that apply to multiple packets. Omit this section when all concerns are packet-local.
 
-## Verification matrix
+## 4. Risks and open decisions
 
-| Test ID | Work packet | Baseline traces | Method | Expected evidence |
-|---|---|---|---|---|
+## 5. Revision summary
 
-## Rollout and rollback
-
-## Risks and open decisions
-
-## Traceability matrix
-
-## Revision summary
+Omit this section for the first version.

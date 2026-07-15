@@ -1,6 +1,6 @@
 ---
 name: ai-dlc-orchestrator
-description: Coordinate an approval-gated AI software development lifecycle with bounded independent AI author-review loops before human artifact approval. Use when starting, continuing, inspecting, pausing, approving, or resuming an AI-DLC project; routing requirements, architecture, implementation-plan, coding, review, or verification roles; or maintaining `.ai-dlc` state, versioned artifacts, findings, traceability, evidence, loop records, and approvals.
+description: Coordinate an approval-gated AI software development lifecycle with bounded independent AI author-review loops before human artifact approval. Use when starting, continuing, inspecting, pausing, approving, or resuming an AI-DLC project; routing requirements, architecture, implementation-plan, coding, review, or verification roles; or maintaining `.ai-dlc` state, versioned artifacts, findings, direct references, evidence, loop records, and approvals.
 ---
 
 # AI-DLC Orchestrator
@@ -53,7 +53,7 @@ Apply this algorithm to requirements, architecture, and implementation plan:
 
 - Start with `APPROVE REQUIREMENTS AI LOOP vNNN` and use `$draft-requirements` plus `$review-requirements`.
 - Write drafts and reviews under `<project_root>/requirements/drafts/` and `<project_root>/requirements/reviews/`.
-- After pass, present the exact draft, review evidence, resolved and deferred findings, assumptions, open questions, and traceability. Ask for `APPROVE REQUIREMENTS BASELINE vNNN`, rejection with feedback, or pause.
+- After pass, present the exact draft, review evidence, FR/NFR/constraint counts and exceptions, resolved and deferred findings, assumptions, and open questions. Ask for `APPROVE REQUIREMENTS BASELINE vNNN`, rejection with feedback, or pause.
 - On approval, establish `<project_root>/requirements/baseline.md`; on rejection, require a new loop approval using the human feedback as an input.
 
 ## Architecture phase

@@ -1,6 +1,6 @@
 ---
 name: verify-change
-description: Execute an approved verification matrix for a named AI-DLC work-packet implementation and produce reproducible evidence against requirements, architecture decisions, plan acceptance criteria, and accepted review disposition. Use only after explicit human authorization for that exact implementation version; do not repair code, waive failures, approve release, deploy, or change workflow state.
+description: Execute an approved verification matrix for a named AI-DLC work-packet implementation and produce reproducible evidence against requirements, architecture decisions, packet completion criteria, and accepted review disposition. Use only after explicit human authorization for that exact implementation version; do not repair code, waive failures, approve release, deploy, or change workflow state.
 ---
 
 # Verify Change

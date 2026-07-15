@@ -25,10 +25,10 @@ If any precondition is missing, versions disagree, or the loop limit is exceeded
 
 ## Workflow
 
-1. Read the approved baseline, quality scenarios, constraints, traceability, and accepted findings.
+1. Read the approved FR, NFR with embedded quality measures, constraints, and accepted findings.
 2. Identify architecture drivers and decisions that must be made now; leave unrelated decisions open.
 3. Define system context, trust boundaries, components, responsibilities, interfaces, data ownership, and deployment constraints at the minimum useful level.
-4. Connect each material decision and quality tactic to requirement IDs or an explicit assumption.
+4. Reference the affected FR, NFR, or constraint directly from each material decision when useful; do not create a separate traceability matrix.
 5. Record alternatives, rationale, consequences, risks, validation approach, and unresolved decisions.
 6. Check consistency, feasibility, operability, security, privacy, evolvability, and requirement coverage.
 7. Write exactly one versioned proposal to the authorized path and return a concise summary.
@@ -40,7 +40,7 @@ If any precondition is missing, versions disagree, or the loop limit is exceeded
 - Treat approved technology choices as constraints, not preferences. Do not invent vendors, frameworks, databases, or topology.
 - Give every component one clear responsibility and every interface an owner, consumers, contract, failure behavior, and security boundary where relevant.
 - Identify data classification, ownership, lifecycle, consistency, recovery, and migration concerns where applicable.
-- Express quality tactics with the requirement or quality-scenario IDs they satisfy and how they will be verified.
+- Express quality tactics with the NFR IDs they satisfy and how they will be verified.
 - Record meaningful alternatives and why they were rejected. Do not manufacture alternatives for trivial decisions.
 - Convert unresolved product intent or risk acceptance into `OPEN-ARCH-*`; do not decide it on behalf of the human.
 - Include no chain-of-thought. Record concise rationale and evidence only.
