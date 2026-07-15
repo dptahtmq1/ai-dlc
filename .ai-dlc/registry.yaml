@@ -1,0 +1,9 @@
+schema_version: "1.0"
+active_project_id: "stock-portfolio-forecast-sample"
+projects:
+  stock-portfolio-forecast-sample:
+    path: ".ai-dlc/projects/stock-portfolio-forecast-sample"
+    status: "AWAITING_WORK_PACKET_AUTHORIZATION"
+    created_at: "2026-07-14T15:04:39.8364419+09:00"
+    migrated_at: "2026-07-15T13:58:51.7677238+09:00"
+    migration_approval_id: "APR-20260715-014"
