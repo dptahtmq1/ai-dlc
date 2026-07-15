@@ -14,45 +14,30 @@
 | Supersedes | `<version or none>` |
 | Created at | `<timestamp>` |
 
-## 2. Problem and purpose
+## 2. Purpose, success, and scope
 
-## 3. Goals and success measures
+### Purpose and success
 
-| ID | Goal | Success measure | Source |
-|---|---|---|---|
+### Users and included scope
 
-## 4. Stakeholders and actors
+### Excluded scope
 
-| ID | Actor | Need or responsibility |
-|---|---|---|
-
-## 5. Scope
-
-### Included
-
-### Excluded
-
-## 6. Constraints and dependencies
-
-| ID | Type | Statement | Source |
-|---|---|---|---|
-
-## 7. Functional requirements
+## 3. Functional requirements
 
 ### FR-NNN: `<title>`
 
 - Priority:
 - Statement:
-- Rationale:
-- Source:
+- Rationale, when useful:
+- Source, when material:
 - Actors:
 - Preconditions:
 - Main behavior:
 - Failure behavior:
-- Acceptance criteria:
+- Verification:
 - Status: `PROPOSED`
 
-## 8. Non-functional requirements
+## 4. Non-functional requirements and quality measures
 
 ### NFR-NNN: `<title>`
 
@@ -61,48 +46,28 @@
 - Target:
 - Measurement method:
 - Priority:
-- Rationale:
-- Source:
-- Quality scenarios:
+- Rationale, when useful:
+- Source, when material:
 - Status: `PROPOSED`
 
-## 9. Quality-attribute scenarios
+## 5. Constraints, assumptions, and open questions
 
-### QA-NNN: `<title>`
+### Constraints
 
-- Source:
-- Stimulus:
-- Environment:
-- Artifact:
-- Response:
-- Response measure:
+| ID | Constraint | Source |
+|---|---|---|
 
-## 10. Acceptance criteria
+### Assumptions
 
-### AC-NNN
+### Open questions
 
-- Related requirements:
-- Given:
-- When:
-- Then:
-- Verification method:
+### Count exceptions
 
-## 11. Assumptions
+State the concrete reason for any FR, NFR, or constraint category outside the 5-to-7 range. Omit when all categories comply.
 
-| ID | Assumption | Impact if false | Confirmation owner |
-|---|---|---|---|
-
-## 12. Open questions
-
-| ID | Question | Why it matters | Required decision owner | Blocking? |
-|---|---|---|---|---|
-
-## 13. Traceability matrix
-
-| Goal | Requirement | Quality scenario | Acceptance criteria |
-|---|---|---|---|
-
-## 14. Revision summary
+## 6. Revision summary
 
 | Source finding/comment | Resolution | Affected IDs | Status |
 |---|---|---|---|
+
+Omit this section for the first version.

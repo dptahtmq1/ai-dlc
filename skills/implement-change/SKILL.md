@@ -1,6 +1,6 @@
 ---
 name: implement-change
-description: Implement exactly one human-approved AI-DLC work packet against approved requirements, architecture, and implementation-plan baselines. Use when an orchestrator supplies explicit authorization, allowed paths, acceptance criteria, verification commands, and rollback boundaries for a named work-packet execution; produce scoped code and an evidence manifest without reviewing or approving the change.
+description: Implement exactly one human-approved AI-DLC work packet against approved requirements, architecture, and implementation-plan baselines. Use when an orchestrator supplies explicit authorization, allowed paths, completion criteria, verification commands, and rollback boundaries for a named work-packet execution; produce scoped code and an evidence manifest without reviewing or approving the change.
 ---
 
 # Implement Change
@@ -13,7 +13,7 @@ Read [references/execution-contract.md](references/execution-contract.md).
 
 ## Preconditions
 
-Require exact baseline versions, plan version, `WP-NNN`, execution approval ID, allowed and prohibited paths, current repository status, acceptance criteria, and verification commands. Return `BLOCKED` without changing files when any item is missing, stale, contradictory, or unsafe.
+Require exact baseline versions, plan version, `WP-NNN`, execution approval ID, allowed and prohibited paths, current repository status, packet completion criteria, and verification commands. Return `BLOCKED` without changing files when any item is missing, stale, contradictory, or unsafe.
 
 ## Workflow
 

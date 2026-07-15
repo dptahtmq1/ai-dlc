@@ -3,7 +3,7 @@
 ## Review dimensions
 
 1. Authorization and identity: exact proposal, baseline, approval, and independent invocation agree.
-2. Requirements traceability: every Must requirement and quality scenario has justified design and validation coverage.
+2. Requirements coverage: every Must FR, NFR, and constraint has justified design and validation coverage through local references.
 3. Boundary quality: components have cohesive responsibilities, explicit ownership, and controlled coupling.
 4. Interfaces and flows: contracts cover authorization, compatibility, timeout, failure, recovery, and observability where applicable.
 5. Data architecture: ownership, classification, lifecycle, consistency, retention, migration, backup, and recovery are addressed as applicable.
@@ -16,8 +16,8 @@
 ## Severity and gate
 
 - `Critical`: unsafe, unlawful, destructive, fundamentally wrong, or approval integrity compromised; blocking.
-- `High`: Must requirement, critical quality scenario, trust boundary, recovery path, or feasibility missing or contradictory; blocking.
+- `High`: Must requirement, critical NFR, trust boundary, recovery path, or feasibility missing or contradictory; blocking.
 - `Medium`: material risk or ambiguity deferrable only with owner and disposition.
 - `Low`: local clarity or maintainability improvement.
 
-Use confidence `HIGH`, `MEDIUM`, or `LOW`. Recommend `PASS_FOR_HUMAN_APPROVAL` only when Critical and High findings are zero, Must and quality-scenario trace coverage are 100%, all dimensions were evaluated, and deferred Medium findings name an owner and disposition.
+Use confidence `HIGH`, `MEDIUM`, or `LOW`. Recommend `PASS_FOR_HUMAN_APPROVAL` only when Critical and High findings are zero, Must FR/NFR/constraint coverage is 100%, all dimensions were evaluated, and deferred Medium findings name an owner and disposition.

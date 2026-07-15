@@ -10,9 +10,9 @@
 
 ### 2. Completeness
 
-- Product purpose, actors, scope, exclusions, dependencies, assumptions, and open questions are present.
+- Product purpose, users, scope, exclusions, dependencies, assumptions, and open questions are present at the minimum useful level.
 - Main flows, error flows, authorization denials, external failures, data lifecycle, and recovery are covered where relevant.
-- Every Must behavior has acceptance criteria.
+- Every Must behavior has concise inline verification conditions.
 
 ### 3. Correctness and source fidelity
 
@@ -28,22 +28,22 @@
 
 ### 5. Consistency
 
-- Requirements do not conflict with each other, exclusions, constraints, or acceptance criteria.
+- Requirements do not conflict with each other, exclusions, constraints, or inline verification conditions.
 - Duplicate requirements are consolidated or deliberately distinguished.
 - Priority and status are consistent with blocking open questions.
 
 ### 6. Testability
 
 - Expected behavior is observable.
-- Acceptance criteria identify setup, action, result, and verification method.
+- FR verification text identifies the observable result and relevant failure condition.
 - NFR targets specify context, threshold, and measurement method.
 
-### 7. Traceability
+### 7. Concision and item discipline
 
-- Every Must FR/NFR traces to a goal.
-- Every Must FR/NFR traces to at least one acceptance criterion.
-- Quality scenarios trace to their NFRs.
-- No acceptance criterion targets a missing or retired requirement.
+- FR, NFR, and constraints each contain 5 to 7 items, or a concrete exception rationale explains why consolidation would lose essential meaning.
+- Quality measures are embedded in NFRs; no separate QA or acceptance-criterion item sets are introduced.
+- Repeated prose, empty sections, and duplicate matrices are removed.
+- Fewer than 5 genuine items are allowed only with an explanation; reviewers never request filler items.
 
 ### 8. Scope and solution neutrality
 
@@ -53,7 +53,7 @@
 
 ### 9. Risk coverage
 
-As applicable, inspect authentication, authorization, privacy, secrets, auditability, data retention, destructive actions, concurrency, failure recovery, availability, performance, accessibility, observability, migration, compatibility, and external dependency behavior.
+As applicable, inspect authentication, authorization, privacy, secrets, auditability, data retention, destructive actions, concurrency, failure recovery, availability, performance, accessibility, observability, migration, compatibility, and external dependency behavior. Evaluate this internally; do not add sections or findings for irrelevant dimensions.
 
 ## Severity
 
@@ -78,9 +78,10 @@ Recommend `PASS_FOR_HUMAN_APPROVAL` only when:
 
 - Critical findings = 0;
 - High findings = 0;
-- Must goal-trace coverage = 100%;
-- Must acceptance-trace coverage = 100%;
+- Must FR inline-verification coverage = 100%;
 - measurable-or-explicitly-blocked NFR coverage = 100%;
+- constraint source coverage = 100%;
+- item-count policy compliance or justified exceptions = 100%;
 - all review dimensions were evaluated;
 - any deferred Medium finding names an owner and proposed disposition.
 

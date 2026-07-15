@@ -20,9 +20,9 @@ If independence cannot be established or an input or version is missing, return 
 ## Workflow
 
 1. Confirm artifact identity, version, status `PROPOSED`, approved inputs, active loop authorization, and independence.
-2. Map drivers, decisions, components, interfaces, data, quality tactics, risks, assumptions, and open questions.
+2. Map key drivers, decisions, components, interfaces, data, quality tactics, risks, and open questions without requiring duplicate item sets.
 3. Apply every review dimension in the policy.
-4. Verify bidirectional coverage between Must requirements, quality scenarios, and architecture decisions.
+4. Verify that Must FRs, NFRs, and constraints are addressed by local references in decisions or components; do not require a separate traceability matrix.
 5. Trace critical flows across boundaries, including denial, dependency failure, timeout, partial failure, recovery, and observability.
 6. Identify contradictions, missing ownership, unsafe trust assumptions, unsupported choices, coupling, single points of failure, and premature complexity.
 7. Assign severity and confidence from evidence, deduplicate by root cause, and write one immutable report.

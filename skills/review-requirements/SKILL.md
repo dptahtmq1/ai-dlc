@@ -34,11 +34,11 @@ If independence cannot be established, versions disagree, or an input is missing
 ## Review workflow
 
 1. Confirm artifact identity, version, status `PROPOSED`, active loop authorization, and author-review independence.
-2. Map goals, scope, constraints, requirements, quality scenarios, acceptance criteria, assumptions, and open questions.
+2. Map scope, functional requirements, non-functional requirements, constraints, assumptions, and open questions.
 3. Apply every review dimension in the policy.
-4. Verify all Must requirements bidirectionally through the traceability matrix.
-5. Inspect High-priority behavior for positive, negative, authorization, failure, boundary, and recovery cases where relevant.
-6. Inspect each NFR and quality scenario for an observable measurement.
+4. Verify that FR, NFR, and constraint categories follow the 5-to-7 policy or include a concrete exception rationale.
+5. Inspect Must behavior for positive, negative, authorization, failure, boundary, and recovery cases where relevant.
+6. Inspect each NFR for an embedded operating context, observable target, and measurement method.
 7. Identify contradictions, duplicates, hidden design decisions, unsupported assumptions, and missing actors or states.
 8. Assign severity and confidence using evidence, not prose intensity.
 9. Deduplicate findings by root cause while listing all affected IDs.
@@ -63,7 +63,7 @@ Avoid style-only findings unless wording creates ambiguity or test risk. Do not 
 
 Return exactly one:
 
-- `PASS_FOR_HUMAN_APPROVAL`: no Critical or High finding remains; every Must requirement has valid goal and acceptance traces; unresolved items are clearly visible and do not prevent a responsible baseline decision.
+- `PASS_FOR_HUMAN_APPROVAL`: no Critical or High finding remains; FRs are verifiable, NFRs are measurable or explicitly blocked, constraints are sourced, and unresolved items do not prevent a responsible baseline decision.
 - `REWORK_REQUIRED`: one or more correctable blocking findings exist.
 - `ESCALATE_TO_HUMAN`: product intent, risk acceptance, conflicting authoritative sources, independence, or policy cannot be resolved by requirements editing alone.
 - `BLOCKED`: required inputs or authorization are missing.
@@ -79,7 +79,7 @@ Require the orchestrator-supplied `project_id` and `project_root`; reject cross-
 - recommendation;
 - finding counts by severity;
 - blocking finding IDs;
-- traceability coverage summary;
+- concise coverage and item-count summary;
 - open decisions requiring a human;
 - explicit statement: `This AI review is a recommendation only; the orchestrator controls loop routing and human approval.`
 
