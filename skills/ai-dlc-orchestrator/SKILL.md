@@ -1,6 +1,6 @@
 ---
 name: ai-dlc-orchestrator
-description: Coordinate an approval-gated AI software development lifecycle with bounded independent AI author-review loops before human artifact approval. Use when starting, continuing, inspecting, pausing, approving, or resuming an AI-DLC project; routing requirements, architecture, implementation-plan, coding, review, or verification roles; or maintaining `.ai-dlc` state, versioned artifacts, findings, traceability, evidence, loop records, and approvals.
+description: Coordinate an approval-gated AI software development lifecycle with bounded independent AI author-review loops before human artifact approval. Use when starting, continuing, inspecting, pausing, approving, or resuming an AI-DLC project; routing requirements, architecture, implementation-plan, coding, review, or verification roles; or maintaining `.ai-dlc` state, versioned artifacts, findings, direct references, evidence, loop records, and approvals.
 ---
 
 # AI-DLC Orchestrator

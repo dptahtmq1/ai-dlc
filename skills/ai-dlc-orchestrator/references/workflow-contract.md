@@ -60,7 +60,6 @@ Any status may move to `PAUSED` or `BLOCKED`. Resume only with a human decision 
     <project-id>/
       project.yaml
       state.yaml
-      traceability.yaml
       findings.yaml
       approvals.yaml
       requirements/
