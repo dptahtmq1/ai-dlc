@@ -1,0 +1,48 @@
+schema_version: "1.0"
+project_id: "stock-portfolio-forecast-sample"
+name: "Stock Portfolio Forecasting Sample"
+status: "INTAKE_APPROVED"
+approved_at: "2026-07-14T15:04:39.8364419+09:00"
+approved_by: "human-user"
+purpose: >-
+  Demonstrate the approval-gated AI-DLC requirements workflow by defining a
+  system that forecasts stock performance and proposes a portfolio based on
+  the user's existing holdings.
+goals:
+  - "Forecast future stock returns or price ranges with explicit uncertainty."
+  - "Analyze the user's existing holdings and propose target portfolio weights and rebalancing candidates."
+  - "Limit eligible investments to large-cap stocks."
+  - "Provide reproducible evidence, including model, data, and backtest versions."
+initial_scope:
+  - "Capture existing holdings, quantities, and current portfolio weights."
+  - "Generate forecasts for eligible stocks."
+  - "Construct a proposed portfolio anchored in the user's existing holdings."
+  - "Show current and target weights, proposed changes, concentration, risk, and forecast uncertainty."
+  - "Backtest using time-ordered validation with controls against data leakage."
+  - "Preserve traceability for data, models, forecasts, and human approvals."
+constraints:
+  - "Only large-cap stocks are eligible; the measurable definition must be resolved in requirements."
+  - "The system must not guarantee returns or present forecasts as personalized financial advice."
+  - "The system must not place trades automatically."
+  - "Every AI-DLC phase transition and rework iteration requires explicit human approval."
+  - "Requirements authorship and review must be performed independently."
+out_of_scope:
+  - "Automatic brokerage order execution."
+  - "Guaranteed investment returns."
+  - "Autonomous approval of requirements, findings, or baselines."
+open_questions:
+  - id: "OPEN-INTAKE-001"
+    question: "Which market or exchanges define the investment universe?"
+  - id: "OPEN-INTAKE-002"
+    question: "What forecast horizon is required?"
+  - id: "OPEN-INTAKE-003"
+    question: "Which market and fundamental data providers may be used?"
+  - id: "OPEN-INTAKE-004"
+    question: "How is large-cap eligibility measured: capitalization threshold, top percentile, or index membership?"
+  - id: "OPEN-INTAKE-005"
+    question: "What risk tolerance, turnover, diversification, tax, and position constraints govern portfolio construction?"
+  - id: "OPEN-INTAKE-006"
+    question: "May the proposal introduce eligible large-cap stocks not already held, or only reweight existing holdings?"
+source_references:
+  - "Human project description and intake additions in the AI-DLC task on 2026-07-14."
+  - "docs/system-specification.md (AI-DLC workflow context only)."
