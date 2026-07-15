@@ -35,6 +35,6 @@ Return exactly one: `PASS_FOR_HUMAN_APPROVAL`, `REWORK_REQUIRED`, `ESCALATE_TO_H
 
 ## Output
 
-Only after all preconditions pass, write `.ai-dlc/architecture/reviews/architecture-review-vNNN.md`. Return proposal and report paths, recommendation, finding counts and blocking IDs, coverage, open decisions, and `This AI review is a recommendation only; the orchestrator controls loop routing and human approval.`
+Require the orchestrator-supplied `project_id` and `project_root`; reject cross-project inputs or a target outside that root. Only after all preconditions pass, write `<project_root>/architecture/reviews/architecture-review-vNNN.md`. Return proposal and report paths, recommendation, finding counts and blocking IDs, coverage, open decisions, and `This AI review is a recommendation only; the orchestrator controls loop routing and human approval.`
 
 Stop after returning the report.

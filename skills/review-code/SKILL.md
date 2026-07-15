@@ -11,6 +11,6 @@ Read [references/code-review-policy.md](references/code-review-policy.md) and us
 
 Require exact baselines, plan and packet IDs, execution manifest, diff boundary, review approval, and reviewer independence. On failure return `BLOCKED` without creating a report.
 
-Inspect the diff and relevant surrounding code; verify scope, behavior, failure paths, security boundaries, concurrency and data handling, compatibility, rollback, test quality, and trace links. Do not rely only on the implementation summary. Record evidence-based `CODE-FIND-NNN` findings and write `.ai-dlc/implementation/reviews/WP-NNN-review-vNNN.md`.
+Require the orchestrator-supplied `project_id` and `project_root` and reject cross-project baselines or evidence. Inspect the diff and relevant surrounding code; verify scope, behavior, failure paths, security boundaries, concurrency and data handling, compatibility, rollback, test quality, and trace links. Do not rely only on the implementation summary. Record evidence-based `CODE-FIND-NNN` findings and write `<project_root>/implementation/reviews/WP-NNN-review-vNNN.md`.
 
 Return `PASS_FOR_VERIFICATION`, `REWORK_REQUIRED`, `ESCALATE_TO_HUMAN`, or `BLOCKED`. This is a recommendation, never approval. State: `Human disposition is required; no workflow transition was approved by this review.`

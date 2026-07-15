@@ -22,6 +22,6 @@ Require exact baseline versions, plan version, `WP-NNN`, execution approval ID, 
 3. Make the smallest change within allowed paths; do not resolve unrelated defects.
 4. Add or update tests required by the packet.
 5. Run authorized checks in proportion to risk. Never hide failures or weaken tests to pass.
-6. Write `.ai-dlc/implementation/executions/WP-NNN-vNNN.md` containing changed paths, baseline traces, commands, results, deviations, remaining risks, and rollback notes.
+6. Require the orchestrator-supplied `project_id` and `project_root`, reject cross-project baselines or evidence paths, and write `<project_root>/implementation/executions/WP-NNN-vNNN.md` containing changed paths, baseline traces, commands, results, deviations, remaining risks, and rollback notes.
 
 If new scope, architecture change, destructive migration, secret, policy conflict, or unavailable dependency appears, stop and return `BLOCKED` with the required human decision. Return `READY_FOR_INDEPENDENT_CODE_REVIEW` only when the scoped implementation and evidence manifest are complete.

@@ -1,11 +1,12 @@
 schema_version: "2.0"
 project_id: "REPLACE_WITH_PROJECT_ID"
+project_root: ".ai-dlc/projects/REPLACE_WITH_PROJECT_ID"
 revision: 1
 current_stage: "REQUIREMENTS"
 current_status: "AWAITING_REQUIREMENTS_LOOP_AUTHORIZATION"
 previous_status: "NOT_INITIALIZED"
 current_artifacts:
-  project_brief: ".ai-dlc/project.yaml"
+  project_brief: ".ai-dlc/projects/REPLACE_WITH_PROJECT_ID/project.yaml"
   requirements_draft: null
   requirements_review: null
   requirements_baseline: null
