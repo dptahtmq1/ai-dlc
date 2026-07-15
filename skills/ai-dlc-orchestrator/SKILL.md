@@ -11,9 +11,18 @@ Coordinate specialists and state. Never replace an author or reviewer. AI review
 
 Read [references/workflow-contract.md](references/workflow-contract.md) before acting. Use [assets/state-template.yaml](assets/state-template.yaml) when initializing state.
 
+## Project resolution
+
+1. Treat `.ai-dlc/registry.yaml` as the workspace registry and resolve one explicit `project_id` before reading or writing workflow state.
+2. Use `.ai-dlc/projects/<project_id>/` as `project_root`. Validate `project_id` as a unique lowercase slug matching `[a-z0-9][a-z0-9-]{0,62}`.
+3. A command may name the project explicitly. Otherwise use `active_project_id` only when the registry contains it and the user request is unambiguous. Never infer a project from artifact contents when multiple projects exist.
+4. Pass `project_id` and `project_root` to every specialist. All workflow artifacts, approvals, findings, runs, and evidence must remain under that root.
+5. If legacy `.ai-dlc/state.yaml` exists without a registry, continue in legacy single-project mode. Propose migration separately and require explicit human approval before moving artifacts or creating a registry entry.
+6. Never change `active_project_id`, create a project, migrate a legacy project, or cross-link project baselines without an explicit human decision.
+
 ## Invariants
 
-1. Read `.ai-dlc/state.yaml` before action. If absent, propose initialization and wait for `APPROVE INTAKE`.
+1. Resolve the project, then read `<project_root>/state.yaml` before action. If absent, propose initialization and wait for `APPROVE INTAKE PROJECT <project_id>`.
 2. Require human approval to start each document phase or restart a loop after human rejection, escalation, or exhausted iterations.
 3. A document phase follows `AI author -> independent AI reviewer -> AI rework` until pass or stop condition. Do not ask the human to accept an unreviewed artifact.
 4. One phase-start approval authorizes only the named phase, input baselines, scope, and configured iteration limit. It does not authorize baseline approval, implementation, merge, push, deploy, or release.
@@ -43,21 +52,21 @@ Apply this algorithm to requirements, architecture, and implementation plan:
 ## Requirements phase
 
 - Start with `APPROVE REQUIREMENTS AI LOOP vNNN` and use `$draft-requirements` plus `$review-requirements`.
-- Write drafts and reviews under `.ai-dlc/requirements/drafts/` and `.ai-dlc/requirements/reviews/`.
+- Write drafts and reviews under `<project_root>/requirements/drafts/` and `<project_root>/requirements/reviews/`.
 - After pass, present the exact draft, review evidence, resolved and deferred findings, assumptions, open questions, and traceability. Ask for `APPROVE REQUIREMENTS BASELINE vNNN`, rejection with feedback, or pause.
-- On approval, establish `.ai-dlc/requirements/baseline.md`; on rejection, require a new loop approval using the human feedback as an input.
+- On approval, establish `<project_root>/requirements/baseline.md`; on rejection, require a new loop approval using the human feedback as an input.
 
 ## Architecture phase
 
 - Start with `APPROVE ARCHITECTURE AI LOOP vNNN` and use `$design-architecture` plus `$review-architecture`.
-- Require the approved requirements baseline. Store versioned proposals and reviews under `.ai-dlc/architecture/`.
+- Require the approved requirements baseline. Store versioned proposals and reviews under `<project_root>/architecture/`.
 - After pass, ask for `APPROVE ARCHITECTURE BASELINE vNNN`, rejection with feedback, or pause.
-- On approval, establish `.ai-dlc/architecture/baseline.md`; on rejection, require a new loop approval.
+- On approval, establish `<project_root>/architecture/baseline.md`; on rejection, require a new loop approval.
 
 ## Implementation-plan phase
 
 - Start with `APPROVE IMPLEMENTATION PLAN AI LOOP vNNN` and use `$plan-implementation` plus `$review-implementation-plan`.
-- Require approved requirements and architecture baselines. Store plans under `.ai-dlc/implementation/plans/` and reviews under `.ai-dlc/implementation/plan-reviews/`.
+- Require approved requirements and architecture baselines. Store plans under `<project_root>/implementation/plans/` and reviews under `<project_root>/implementation/plan-reviews/`.
 - After pass, ask for `APPROVE IMPLEMENTATION PLAN BASELINE vNNN`, rejection with feedback, or pause.
 - On approval, record the accepted plan and transition to work-packet authorization.
 
@@ -72,7 +81,7 @@ Apply this algorithm to requirements, architecture, and implementation plan:
 
 ## State and approval records
 
-Update state atomically. Preserve `previous_status`, increment `revision`, update current stage/status/artifacts/loop counters, append history, and set `next_required_human_action`. Approval records contain ID, checkpoint, artifact or loop scope, version, decision, user note, environment timestamp, and actor `human-user` unless verified otherwise.
+Update state atomically. Preserve `project_id`, `project_root`, `previous_status`, increment `revision`, update current stage/status/artifacts/loop counters, append history, and set `next_required_human_action`. Approval records contain the project ID, ID, checkpoint, artifact or loop scope, version, decision, user note, environment timestamp, and actor `human-user` unless verified otherwise. IDs need only be unique within one project root; external summaries must qualify them as `<project_id>:<id>`.
 
 ## Completion
 

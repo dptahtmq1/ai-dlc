@@ -55,6 +55,6 @@ If any precondition is missing, versions disagree, or the loop limit is exceeded
 
 ## Output
 
-Write `.ai-dlc/architecture/drafts/architecture-vNNN.md`. Return the artifact path and version, ID counts, coverage, revision changes, and recommendation `READY_FOR_AI_REVIEW` or `BLOCKED`.
+Require the orchestrator-supplied `project_id` and `project_root`; reject cross-project baselines or a target outside that root. Write `<project_root>/architecture/drafts/architecture-vNNN.md`. Return the artifact path and version, ID counts, coverage, revision changes, and recommendation `READY_FOR_AI_REVIEW` or `BLOCKED`.
 
 Stop after returning the proposal. Do not start review or implementation.

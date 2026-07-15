@@ -72,7 +72,7 @@ This recommendation is never approval. `REWORK_REQUIRED` routes findings to the 
 
 ## Output
 
-Only after all preconditions pass, write `.ai-dlc/requirements/reviews/review-vNNN.md` without changing the draft. Return:
+Require the orchestrator-supplied `project_id` and `project_root`; reject cross-project inputs or a target outside that root. Only after all preconditions pass, write `<project_root>/requirements/reviews/review-vNNN.md` without changing the draft. Return:
 
 - reviewed artifact path and version;
 - review report path and version;

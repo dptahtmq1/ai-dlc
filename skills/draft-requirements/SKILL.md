@@ -83,7 +83,7 @@ Before writing, verify:
 
 ## Output
 
-Write `.ai-dlc/requirements/drafts/requirements-vNNN.md`. Return:
+Require the orchestrator-supplied `project_id` and `project_root`; reject a target outside that root. Write `<project_root>/requirements/drafts/requirements-vNNN.md`. Return:
 
 - artifact path and version;
 - counts by requirement type and priority;

@@ -21,7 +21,7 @@ Require the exact plan and version produced in the active loop, approved require
 2. Map every required baseline item to work packets and verification evidence.
 3. Inspect packet atomicity, ordering, dependencies, allowed and prohibited scope, acceptance criteria, tests, migrations, compatibility, rollout, rollback, and operational risk.
 4. Identify omissions, contradictions, unsafe sequencing, unverifiable completion, unsupported choices, and packets too broad for independent authorization.
-5. Write one immutable report to `.ai-dlc/implementation/plan-reviews/implementation-plan-review-vNNN.md`.
+5. Require the orchestrator-supplied `project_id` and `project_root`, reject cross-project inputs or a target outside that root, and write one immutable report to `<project_root>/implementation/plan-reviews/implementation-plan-review-vNNN.md`.
 
 Every `PLAN-FIND-NNN` includes severity, confidence, blocking status, affected packet and baseline IDs, evidence, violated rule, impact, and recommended correction or human decision.
 

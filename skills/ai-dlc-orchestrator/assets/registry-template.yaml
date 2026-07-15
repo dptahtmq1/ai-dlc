@@ -1,0 +1,7 @@
+schema_version: "1.0"
+active_project_id: "REPLACE_WITH_PROJECT_ID"
+projects:
+  REPLACE_WITH_PROJECT_ID:
+    path: ".ai-dlc/projects/REPLACE_WITH_PROJECT_ID"
+    status: "AWAITING_REQUIREMENTS_LOOP_AUTHORIZATION"
+    created_at: "REPLACE_WITH_TIMESTAMP"

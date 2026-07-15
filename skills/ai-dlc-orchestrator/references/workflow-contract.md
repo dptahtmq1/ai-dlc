@@ -55,28 +55,41 @@ Any status may move to `PAUSED` or `BLOCKED`. Resume only with a human decision 
 
 ```text
 .ai-dlc/
-  project.yaml
-  state.yaml
-  traceability.yaml
-  findings.yaml
-  approvals.yaml
-  requirements/
-    drafts/requirements-v001.md
-    reviews/review-v001.md
-    baseline.md
-  architecture/
-    drafts/architecture-v001.md
-    reviews/architecture-review-v001.md
-    baseline.md
-  implementation/
-    plans/implementation-plan-v001.md
-    plan-reviews/implementation-plan-review-v001.md
-    executions/WP-001-v001.md
-    reviews/WP-001-review-v001.md
-    verifications/WP-001-verification-v001.md
-  runs/run-YYYYMMDD-NNN.md
+  registry.yaml
+  projects/
+    <project-id>/
+      project.yaml
+      state.yaml
+      traceability.yaml
+      findings.yaml
+      approvals.yaml
+      requirements/
+        drafts/requirements-v001.md
+        reviews/review-v001.md
+        baseline.md
+      architecture/
+        drafts/architecture-v001.md
+        reviews/architecture-review-v001.md
+        baseline.md
+      implementation/
+        plans/implementation-plan-v001.md
+        plan-reviews/implementation-plan-review-v001.md
+        executions/WP-001-v001.md
+        reviews/WP-001-review-v001.md
+        verifications/WP-001-verification-v001.md
+      runs/run-YYYYMMDD-NNN.md
 ```
+
+`registry.yaml` is workspace-scoped. Every other workflow artifact is project-scoped. The resolved project root is `.ai-dlc/projects/<project-id>`. Reject writes that normalize outside this root.
+
+## Registry and selection
+
+- Registry schema fields: `schema_version`, optional `active_project_id`, and `projects` keyed by project ID with `path`, `status`, and `created_at`.
+- A project ID is an immutable lowercase slug matching `[a-z0-9][a-z0-9-]{0,62}`. Renaming requires a separately approved migration.
+- Explicit project context overrides `active_project_id`. If neither resolves exactly one project, stop for user selection.
+- Creating, selecting, archiving, or migrating a project is a human gate and must be recorded in that project's approvals and registry history where applicable.
+- Legacy top-level `.ai-dlc/state.yaml` is supported as one read/write root until an explicitly approved migration. Do not mix legacy and namespaced paths in one project.
 
 ## Human gate presentation
 
-Show the completed loop or action, exact artifacts and review evidence, material changes and findings, iteration usage, proposed decision, files affected by the next action, exact approval phrase, and reject/edit/pause alternatives.
+Show the project ID, completed loop or action, exact artifacts and review evidence, material changes and findings, iteration usage, proposed decision, files affected by the next action, exact project-qualified approval phrase, and reject/edit/pause alternatives.
